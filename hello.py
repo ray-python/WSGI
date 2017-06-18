@@ -5,24 +5,8 @@ def app(environ, start_response):
     ]
     body = 'Hello, world!'
     start_response(status, headers )
-    return [body]
+    return body
 
 '''
-def app(environ, start_response):
-
-	raw_uri = str(environ.get('RAW_URI'))
-	
-	raw_uri = raw_uri[2:]
-
-	params = raw_uri.split('&')
-	
-	data = ''
-	for param in params:
-		data += param + '\r\n'
-	
-	start_response("200 OK", [
-	  ("Content-Type", "text/plain"),
-	  ("Content-Length", str(len(data)))
-	])
-	return iter([data])
+	body = [bytes(i + '\n', 'ascii') for i in environ['QUERY_STRING'].split('&')]
 	'''
