@@ -10,7 +10,6 @@ def wsgi_application(environ, start_response):
 '''
 def app(environ, start_response):
 
-	
 	raw_uri = str(environ.get('RAW_URI'))
 	
 	raw_uri = raw_uri[2:]
